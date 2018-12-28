@@ -4,7 +4,6 @@
 # obtained from the NWS for the next several days
 # for the current location of the IP address.
 ###################################################
-from sys import argv
 import urllib.request
 import json
 
@@ -19,7 +18,8 @@ def get_forecast(latlongstr):
     """takes a comma separated string version of a lat/long and obtains a forecast from the NWS"""
     response = urllib.request.urlopen("https://api.weather.gov/points/"+latlongstr+"/forecast").read() 
     return json.loads(response)["properties"]["periods"]
-    
+
+
 #Prints the forecast for each time period returned by the NWS forecast. 
 for period in get_forecast(get_latlong()):
     print(period["name"]+":")

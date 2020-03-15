@@ -4,6 +4,7 @@
 # the simulation of many volleyball games using 
 # rally scoring.
 ##############################################
+import random
 
 def play_point(ranking1, ranking2):
     """This function simulates a point in a volleyball game and returns the winning team number

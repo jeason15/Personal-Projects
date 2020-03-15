@@ -1,0 +1,148 @@
+---
+title: "stock_market"
+author: "Joshua Eason"
+date: "3/14/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+
+#Dependencies... If you don't have these libraries, install them using the code below...
+#install.packages("tidyverse")
+#install.packages("caret")
+#install.packages("mosaic")
+#install.packages("skimr")
+#install.packages("corrplot")
+#install.packages("zoo")
+#install.packages("RCurl")
+
+library(tidyverse)
+library(caret)
+library(mosaic)
+library(skimr)
+library(corrplot)
+library(zoo)
+library(RCurl)
+
+data <- read.csv("GSPC.csv")
+
+```
+
+This is my quick analysis of your dataset, with some ideas and sample implementations. All of this is obviously in R since it is clearly the best language and R users are the superior race of scientists. Ill get started. 
+
+First, I want to know what my data "looks" like. Meaning, what are the types of data, etc. For that I will just do a glimpse of my data. skim lets me get some summary statistics. I am using the "skimr" library. This is mainly to just get an idea of what I am dealing with.
+
+As you can see, here the output gives me the mean, min, max, quartiles, and a really bad histogram. Luckily for us, there isnt a lot of cleaning that needs to happen because all of the numeric variables are already formatted properly. I do want to make one change to the date variable. 
+
+```{r}
+
+skim(data)
+
+```
+
+In this dataset, date is dealt with as a factor, meaning it is categorical in nature. This will probably be a problem when we try to go after the time-series analysis. Ill fix that here...
+
+```{r}
+
+data$Date <- as.Date(data$Date)
+
+skim(data$Date)
+
+```
+
+
+So, we obviously suspected some exponential growth. I have transformed the closing price on a log scale and plotted its relationship with time here, and you were right. It is, and now we have it linearized for what it is worth. 
+
+```{r}
+
+data_log <- data %>% mutate(log_close = log(Close))
+
+data_log %>% ggplot(aes(x = Date, y = log_close)) + geom_point()
+
+model_lm_1 <- lm(Close ~ Volume,data = data)
+summary(model_lm_1)
+
+data %>% ggplot(aes(x = Date, y = log(Volume))) + geom_point() + geom_smooth(mmethod = "lm")
+data %>% ggplot(aes(x = log(Volume), y = log(Close))) + geom_point() + geom_smooth(mmethod = "lm")
+
+```
+
+
+Here, I am going to build a rolling window for you. Ill do one for each: 7, 14, 30, 180, 365 days. That should be enough...
+
+```{r}
+
+data_roll <- data %>% mutate(roll_7_close = rollapply(data$Close, width = 7, by = 1, FUN = mean, align = "right", partial = TRUE),
+                             roll_7_vol = rollapply(data$Volume, width = 7, by = 1, FUN = mean, align = "right", partial = TRUE),
+                             roll_14_close = rollapply(data$Close, width = 14, by = 1, FUN = mean, align = "right", partial = TRUE),
+                             roll_14_vol = rollapply(data$Volume, width = 14, by = 1, FUN = mean, align = "right", partial = TRUE),
+                             roll_30_close = rollapply(data$Close, width = 30, by = 1, FUN = mean, align = "right", partial = TRUE),
+                             roll_30_vol = rollapply(data$Volume, width = 30, by = 1, FUN = mean, align = "right", partial = TRUE),
+                             roll_180_close = rollapply(data$Close, width = 180, by = 1, FUN = mean, align = "right", partial = TRUE),
+                             roll_180_vol = rollapply(data$Volume, width = 180, by = 1, FUN = mean, align = "right", partial = TRUE),
+                             roll_365_close = rollapply(data$Close, width = 365, by = 1, FUN = mean, align = "right", partial = TRUE),
+                             roll_365_vol = rollapply(data$Volume, width = 365, by = 1, FUN = mean, align = "right", partial = TRUE))
+
+```
+
+
+For an interesting aside, I'd like to explore the idea of automating your data downloads in order to give you the ability to run experiments on your model. I'll take a shot at it here, and I am leaving this code in no matter what cause I think you could benefit from seeing how I did it either way. 
+
+update... This code works. It dumps the downloaded file into the working directory you have set in R. There are a couple things that need to generalize in order to run this code on "any" company. 
+
+1. Individual companies: "https://query1.finance.yahoo.com/v7/finance/download/*insertCallNameHere*?period1=*epochTimeStart*&period2=*ephochTimeEnd*&interval=1d&events=history&crumb=yNsTEUCS33"
+
+2. Indices: "https://query1.finance.yahoo.com/v7/finance/download/%5E*insertCallNameHere*?period1=*epochTimeStart*&period2=*ephochTimeEnd*&interval=1d&events=history&crumb=yNsTEUCS33"
+
+for the "epoch time" start and end, this will be in number of seconds since the epoch. You are essentially telling the website how many seconds of data you are interested in. 
+
+Once you have your file downloaded, you can do the same stuff to it that I did to the file you sent me above if you want. 
+
+```{r}
+url_1 <- "https://query1.finance.yahoo.com/v7/finance/download/" 
+url_2 <- "?period1="
+url_3 <- "&period2="
+url_4 <- "&interval=1d&events=history&crumb=yNsTEUCS33"
+call <- "UAL" # youd want to make this something that can change based on the vaule of the current company in the vector
+
+# The code below gives you a 10 year window. This code will crash if you try and get more time than the company has been around. 
+start <- "1268641665" # if you want to vary this based on how long the company has been on the market, this would need to change
+end <- "1584211185" # this needs to stay the same based on "today's date"
+
+# This builds the download link. 
+URL <- paste(url_1, call, url_2, start, url_3, end, url_4, sep = "")
+
+# This downloads the file and writes out a csv file for you to your working directory. 
+call_file <- paste(call, ".csv", sep = "")
+download.file(URL,destfile=call_file,method="libcurl")
+
+# I read in the test file for you here so you could see it. 
+call_data <- read.csv(call_file)
+head(call_data)
+
+```
+
+So you now have the code to download your files automatically, provided you do some more legwork. Lastly, I'll show you how I'd do the experiment. This is gonna be hardcore pseudocode...
+
+This code wont run... like... at all... 
+
+Option 1: build a model for each comany, then test on that model
+```{r}
+
+for (comany in company_vector) {
+  
+  1. download your dataset and write a csv file
+  2. read in that file and create a matrix
+  3. do your cleaning and transformations on the data
+  4. build your model on the data (train)
+  5. make your predictions and save to a new dataset for just this company with probably only prediction and actual (test)
+  5. measure your prediction accuracy, and create a new dataset that you will start appending these metrics to for each company
+  
+}
+
+```
+
+Option 2: Build a model from the composite data from a representative sample of companies and train and test on that model, then use that one single model to make predictions on a series of "new" companies that you have ground truth data to verify accuracy. 
+
+
+

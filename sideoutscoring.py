@@ -20,7 +20,7 @@ def play_game(num_points, ranking1, ranking2):
     score1 = 0
     score2 = 0
     serving = 1
-    print(serving,score1,score2)
+    #print(serving,score1,score2)
     while (score1 < num_points and score2 < num_points) or abs(score1-score2) <= 1: 
         point = play_point(serving, ranking1, ranking2)         
         if point == 1:
@@ -31,7 +31,7 @@ def play_game(num_points, ranking1, ranking2):
             serving += 1
         elif point == 3 and serving == 2:
             serving -= 1
-        print(serving, score1, score2) 
+        #print(serving, score1, score2) 
     return (score1, score2)
 
 def play_stats(num_games, num_points, ranking1, ranking2):

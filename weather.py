@@ -12,6 +12,7 @@ def get_latlong():
     format as a comma separated string"""
     info = urllib.request.urlopen("https://ipinfo.io").read()
     decoded = json.loads(info)
+    print(decoded["loc"])
     return decoded["loc"]
 
 def get_forecast(latlongstr):

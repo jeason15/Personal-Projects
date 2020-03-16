@@ -15,6 +15,8 @@ output: html_document
 #install.packages("corrplot")
 #install.packages("zoo")
 #install.packages("RCurl")
+#install.packages("rvest")
+#install.packages("robotstxt")
 
 library(tidyverse)
 library(caret)
@@ -23,6 +25,8 @@ library(skimr)
 library(corrplot)
 library(zoo)
 library(RCurl)
+library(rvest)
+library(robotstxt)
 
 data <- read.csv("GSPC.csv")
 
@@ -88,6 +92,19 @@ data_roll <- data %>% mutate(roll_7_close = rollapply(data$Close, width = 7, by 
 
 For an interesting aside, I'd like to explore the idea of automating your data downloads in order to give you the ability to run experiments on your model. I'll take a shot at it here, and I am leaving this code in no matter what cause I think you could benefit from seeing how I did it either way. 
 
+```{r}
+url <- "https://www.advfn.com/nyse/newyorkstockexchange.asp"
+
+page <- read_html(url)
+ 
+page_table_data <-page %>%
+   html_nodes("a") %>%
+   html_text()
+
+company = as.character(page_table_data[(seq(from=36, to=252, by=3))])
+```
+
+
 update... This code works. It dumps the downloaded file into the working directory you have set in R. There are a couple things that need to generalize in order to run this code on "any" company. 
 
 1. Individual companies: "https://query1.finance.yahoo.com/v7/finance/download/*insertCallNameHere*?period1=*epochTimeStart*&period2=*ephochTimeEnd*&interval=1d&events=history&crumb=yNsTEUCS33"
@@ -107,7 +124,7 @@ call <- "UAL" # youd want to make this something that can change based on the va
 
 # The code below gives you a 10 year window. This code will crash if you try and get more time than the company has been around. 
 start <- "1268641665" # if you want to vary this based on how long the company has been on the market, this would need to change
-end <- "1584211185" # this needs to stay the same based on "today's date"
+end <- as.character(as.integer(as.POSIXct(Sys.time()))) # this needs to stay the same based on "today's date"
 
 # This builds the download link. 
 URL <- paste(url_1, call, url_2, start, url_3, end, url_4, sep = "")
@@ -121,6 +138,49 @@ call_data <- read.csv(call_file)
 head(call_data)
 
 ```
+
+```{r}
+# This is the code  that finds the list of company names. This is literally one of the first links that I went to. Id call this more of a proof of concept to show that it will work. If you want to make it more robust, you could find a better place to scrape from. I can help you look, but I dont want to sink a bunch of time into it if you arent planning on using it.
+url <- "https://www.advfn.com/nyse/newyorkstockexchange.asp"
+
+page <- read_html(url)
+ 
+page_table_data <-page %>%
+   html_nodes("a") %>%
+   html_text()
+
+company = as.character(page_table_data[(seq(from=36, to=252, by=3))])
+
+remove <- c("RDS.A","BRK.B")
+company <- company[!(company %in% remove)]
+
+# This loop does the experiment on each company.
+for(call in company) {
+  
+  call_name <- call
+  
+  url_1 <- "https://query1.finance.yahoo.com/v7/finance/download/" 
+  url_2 <- "?period1="
+  url_3 <- "&period2="
+  url_4 <- "&interval=1d&events=history&crumb=yNsTEUCS33"
+  start <- "1552788304" # This only goes back like one year. If you want more, you need to get the rest by adjusting this For each year further you want to subtract another 31536000 seconds for each additional year that you want to look back in time. I only did one year cause you are pretty much guaranteed that all the companies that I scraped would have at least a year of stock data. If you wanted to get really fancy and you could find a place that I could scrape from where it would tell me how long the company had been on the exchange, you would be able to set up a custom range for each company, although I wouldnt recommend that if you are looking to experiment on this data. Here, there are 71 compnaies, and we have like 1 year of data for each.
+  end <- as.character(as.integer(as.POSIXct(Sys.time())))
+
+  URL <- paste(url_1, call_name, url_2, start, url_3, end, url_4, sep = "")
+
+  call_file <- paste(call_name, ".csv", sep = "")
+  download.file(URL,destfile=call_file,method="libcurl")
+  
+  #do some fancy data science shit here... 
+  #store the results of your fancy data science shit here... 
+  #store the accuracy of the fancy results here. This is actually really easy from a code perspective and if you decide to go this route, I can have you set up in a matter of minutes. 
+  
+  unlink(call_file) # This deletes the original data file once you are done. No need to store it...
+  
+  }
+
+```
+UPDATE: I basically built this as a prototype above. 
 
 So you now have the code to download your files automatically, provided you do some more legwork. Lastly, I'll show you how I'd do the experiment. This is gonna be hardcore pseudocode...
 

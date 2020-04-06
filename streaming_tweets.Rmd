@@ -1,0 +1,22 @@
+---
+title: "Streaming Tweets"
+output: html_notebook
+---
+
+```{r}
+
+library(tidyverse)
+library(rtweet)
+
+```
+
+```{r}
+
+
+tweets <- stream_tweets2(timeout = 60, file_name = "tweets.json")
+tweets <- tweets[,c("user_id", "status_id", "created_at", "screen_name", "text", "source", "reply_to_status_id", "reply_to_user_id", "reply_to_screen_name", "reply_count", "is_quote", "is_retweet", "favorite_count", "retweet_count", "quote_count", "reply_count", "lang", "quoted_status_id", "quoted_text", "quoted_name", "quoted_user_id", "favourites_count", "retweet_status_id")]
+
+write.csv(tweets, "tweets.csv")
+
+```
+

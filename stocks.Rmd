@@ -205,4 +205,59 @@ for (comany in company_vector) {
 Option 2: Build a model from the composite data from a representative sample of companies and train and test on that model, then use that one single model to make predictions on a series of "new" companies that you have ground truth data to verify accuracy. 
 
 
+Here, I am gonna start my analysis. It is time-series data, and I want to preserve the ordinality of it all, but I think looking at the data more locally will give us a better idea about what we are dealing with. Im going to start with a basic regression model. 
+
+```{r}
+
+data_roll <- data %>% mutate(roll_30_close = rollapply(data$Close, width = 30, by = 1, FUN = mean, align = "right", partial = TRUE),roll_30_vol = rollapply(data$Volume, width = 30, by = 1, FUN = mean, align = "right", partial = TRUE))
+
+train_index <- createDataPartition(data_roll$Close,
+                                   times = 1,
+                                   p = .75,
+                                   list = FALSE)
+
+train_data <- data_roll[train_index,]
+test_data <- data_roll[-train_index,]
+
+processed <- preProcess(data_roll, method = c("center", "scale"))
+normalized_data <- predict(processed, data_roll)
+
+train_normalized <- normalized_data[train_index,]
+test_normalized <- normalized_data[-train_index,]
+
+model_glm <- train(form = Close~ roll_14_vol,
+               data = train_normalized,
+               method = "glm")
+
+test_pred_glm <- test_normalized %>% mutate(close_pred = predict(model, test_normalized),
+                                  pred_diff = close_pred - Close)
+
+glm_rmse_train <- max(model_glm$results$RMSE)
+glm_r2_train <- max(model_glm$results$Rsquared)
+glm_mae_train <- max(model_glm$results$MAE)
+test_normalized <- test_normalized %>% mutate(close_pred_glm = predict(model_glm, test_normalized))
+glm_rmse_test <- RMSE(test_normalized$close_pred_glm, test_normalized$Close)
+glm_r2_test <- R2(test_normalized$close_pred_glm, test_normalized$Close)
+glm_mae_test <- MAE(test_normalized$close_pred_glm, test_normalized$Close)
+
+glm_stats <- tibble(glm_rmse_train = glm_rmse_train, glm_rmse_test = glm_rmse_test, glmr2_train = glm_r2_train, glmr2_test = glm_r2_test,
+                    glm_mae_train = glm_mae_train, glm_mae_test = glm_mae_test)
+
+knitr::kable(glm_stats)
+
+# alpha <- seq(from=0, to=0, length=11)
+# lambda <- seq(from=0, to=1, length=11)
+# grid <- expand.grid(alpha, lambda)
+# colnames(grid) <- c("alpha", "lambda")
+# 
+# 
+# model_net <- train(form = Close~ roll_7_vol,
+#                data = train_data,
+#                method = "glmnet",
+#                tuneGrid = grid)
+# 
+# test_pred_net <- test_data %>% mutate(close_pred = predict(model, test_data),
+#                                   pred_diff = close_pred - Close)
+
+```
 

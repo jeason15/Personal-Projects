@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Final Project Template</title>
+    <!-- This is where we load the CSS for the page -->
+    <link rel="stylesheet" href="css/master.css">
+
+    <!-- This is where we load the API and CSS for Mapbox -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css" rel="stylesheet" />
+
+
+  </head>
+  <body>
+    <section id="first" class="content">
+      <div id="navthing">
+        <nav id="dataviz">
+          <div>
+            <p>
+              <a href="#first">First Section</a>
+            </p>
+          </div>
+          <div>
+            <p>
+              <a href="#second">Second Section</a>
+            </p>
+          </div>
+          <div>
+            <p>
+              <a href="#third">Third Section</a>
+            </p>
+          </div>
+          <div>
+            <p>
+              <a href="#fourth">MapBox</a>
+            </p>
+          </div>
+          <div>
+            <p>
+              <a href="#fifth">Polar Chart</a>
+            </p>
+          </div>
+          <div>
+            <p>
+              <a href="#sixth">Pie Chart</a>
+            </p>
+          </div>
+        </nav>
+      </div>
+
+      <div id="titlestuff">
+        <div id="titlebox">
+          <h1>Title of the Thing</h1>
+          <h3>Contextual paragraph</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
+
+        <div id="titlegraphic">
+          <div id="imgbox">
+            <img src="" alt="">
+            <p>Place an Image or Something Here</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="second" class="content">
+      <div id="textbox">
+        <h3>Chart for the Thing</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore similique rerum illo, veniam, temporibus exercitationem deserunt. Magnam iure, quis provident incidunt deserunt unde non. Beatae illo, earum odit saepe ad.</p>
+      </div>
+      <div id="chartbox">
+        <div id="firstchart">
+          <canvas id="bar-chart"></canvas>
+        </div>
+        <div id="secondchart">
+          <canvas id="radar-chart"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <section id="third" class="content">
+      <div id="textbox">
+        <h3>Contextual Title</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut officiis libero reprehenderit officia, quis fuga, ea sequi maxime dolorum ipsa itaque assumenda, eos maiores aut cum? Hic consequuntur officiis dolorem. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla quod fugit recusandae facilis quos iure est adipisci voluptas eligendi atque aperiam, alias neque, doloremque minima. Velit amet laudantium quis architecto?</p>
+      </div>
+    </section>
+
+    <section id="fourth" class="content">
+      <div id="mapthing">
+        <div id="textbox">
+          <h3>Contextual Title</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <div id='map'></div>
+      </div>
+    </section>
+
+    <section id="fifth" class="content">
+      <div id="textbox">
+        <h3>Chart for the Thing</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore similique rerum illo, veniam, temporibus exercitationem deserunt. Magnam iure, quis provident incidunt deserunt unde non. Beatae illo, earum odit saepe ad.</p>
+      </div>
+      <div id="polarchart">
+        <canvas id="polar-chart"></canvas>
+      </div>
+    </section>
+
+    <section id="sixth" class="content">
+      <div id="textbox">
+        <h3>Chart for the Thing</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore similique rerum illo, veniam, temporibus exercitationem deserunt. Magnam iure, quis provident incidunt deserunt unde non. Beatae illo, earum odit saepe ad.</p>
+      </div>
+      <div id="piechart">
+        <canvas id="pieChart"></canvas>
+      </div>
+    </section>
+
+    <!-- SCRIPTS - CHARTJS and MAPBOX libraries -->
+    <!-- CHARTJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.0.1/chart.min.js" charset="utf-8"></script>
+    <script src="js/barChart.js" charset="utf-8"></script>
+    <script src="js/polarChart.js" charset="utf-8"></script>
+    <script src="js/radarChart.js" charset="utf-8"></script>
+    <script src="js/pieChart.js" charset="utf-8"></script>
+
+    <!-- MAPBOX -->
+    <script src="js/mapbox.js" charset="utf-8"></script>
+
+    <!-- JQUERY -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- JQUERY UI -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" charset="utf-8"></script>
+
+  </body>
+</html>

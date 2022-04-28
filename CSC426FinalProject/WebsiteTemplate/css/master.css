@@ -1,0 +1,265 @@
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+  padding: 0;
+  margin: 0;
+}
+
+div#navthing{
+  width: 12.5vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+
+  font-style: italic;
+}
+
+nav#dataviz{
+  position: fixed;
+  width: 12.5vw;
+  margin-left: 1rem;
+  /* align-self: flex-start; */
+}
+
+section.content{
+  width: 75vw;
+  margin: 0 auto;
+}
+
+section#first{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div#titlestuff{
+  width: 75vw;
+  height: 100vh;
+  margin: 0 10vw 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+div#titlebox{
+  width: 49%;
+}
+
+div#titlegraphic{
+  width: 49%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+div#imgbox{
+  width: 100%;
+  height: 80%;
+  background-color: #f0de67;
+  border-radius: 5px;
+
+  animation: 5s linear colorShift;
+  animation-iteration-count: infinite;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+div#imgbox p{
+  width: 70%;
+  font-size: 3rem;
+  color: rgba(255,255,255, 0.3);
+  font-style: italic;
+  text-align: center;
+}
+
+@keyframes colorShift {
+  10%{
+    background-color: #fc880e;
+  }
+
+  30%{
+    background-color: #f0de67;
+  }
+
+  50%{
+    background-color: #33c85a;
+  }
+
+  70%{
+    background-color: #484aed;
+  }
+
+  90%{
+    background-color: #cc3434;
+  }
+}
+
+div#titlebox h1{
+  font-size: 7rem;
+  margin: 0;
+}
+
+div#titlebox h3{
+  font-size: 3.75rem;
+  margin: 3rem 0 0 0;
+  font-style: italic;
+}
+
+div#titlebox p{
+  width: 90%;
+  font-size: 1.5rem;
+}
+
+section#second{
+  height: 100vh;
+  /* padding: 3rem 0 0 0; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+section#second>div#textbox{
+  width: 45%;
+}
+
+section#second>div#textbox>h3{
+  font-size: 3.75rem;
+  margin-bottom: 0;
+}
+
+section#second>div#textbox>p{
+  font-size: 2rem;
+  margin-top: .5rem;
+  font-style: italic;
+}
+
+section#second>div#chartbox{
+  width: 54%;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+div#chartbox>div#firstchart{
+  width: 75%;
+
+}
+
+div#chartbox>div#secondchart{
+  width: 75%;
+}
+
+section#third{
+  height: 100vh;
+  padding: 1rem 0 0 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section#third>div#textbox p{
+  font-size: 3rem;
+}
+
+section#third>div#textbox h3{
+  font-size: 3.75rem;
+}
+
+section#fourth{
+  width: 75vw;
+  height: 100vh;
+}
+
+div#mapthing{
+  width: 100%;
+  height: 100%;
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+}
+
+div#mapthing>div#textbox{
+  width: 48%;
+}
+
+div#mapthing>div#textbox p{
+  font-size: 2rem;
+  margin-top: .5rem;
+}
+
+div#mapthing>div#textbox h3{
+  font-size: 3.75rem;
+  margin-bottom: 0;
+}
+
+div#map{
+  width: 50%;
+  height: 100vh;
+}
+
+section#fifth{
+  height: 100vh;
+  /* padding: 3rem 0 0 0; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+
+section#fifth>div#textbox{
+  width: 48%;
+}
+
+section#fifth>div#textbox>h3{
+  font-size: 3.75rem;
+  margin-bottom: 0;
+}
+
+section#fifth>div#textbox>p{
+  font-size: 2rem;
+  margin-top: .5rem;
+  font-style: italic;
+}
+
+div#polarchart{
+  width: 50%;
+}
+
+div#piechart{
+  width: 50%;
+}
+
+section#sixth{
+  height: 100vh;
+  /* padding: 3rem 0 0 0; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* flex-direction: row; */
+}
+
+section#sixth>div#textbox{
+  width: 48%;
+}
+
+section#sixth>div#textbox>h3{
+  font-size: 3.75rem;
+  margin-bottom: 0;
+}
+
+section#sixth>div#textbox>p{
+  font-size: 2rem;
+  margin-top: .5rem;
+  font-style: italic;
+}

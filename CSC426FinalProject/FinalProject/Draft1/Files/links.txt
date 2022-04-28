@@ -1,0 +1,23 @@
+Links for project:
+
+Data: 
+- https://www.fueleconomy.gov/feg/ws/index.shtml#fuelType1
+- https://datasource.kapsarc.org/explore/dataset/us-vehicle-fuel-economy-data-1984-2017/information/?disjunctive.make&disjunctive.model&sort=-year
+
+
+Code Resource Examples:
+- https://codepen.io/hofmannsven/pen/YzygMqO
+
+Code Sandbox:
+- https://codepen.io/jeason15/pen/ExorLaW
+
+Inspiration: 
+- https://www.data-to-viz.com/graph/sankey.html
+- https://www.epa.gov/automotive-trends/highlights-automotive-trends-report
+- https://wpdatatables.com/chart-js-examples/
+- https://codesandbox.io/s/tyhsw
+- https://codepen.io/hofmannsven/pen/YzygMqO
+- https://codepen.io/search/pens?q=chartjs
+
+I REALLY LIKE THIS!!!:
+- https://codepen.io/isladjan/pen/abdyPBw

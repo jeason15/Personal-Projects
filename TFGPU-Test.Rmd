@@ -1,0 +1,71 @@
+---
+title: "TFGPU-Test"
+author: "Joshua Eason"
+date: "9/2/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+#library(keras)
+#install_keras(tensorflow = "gpu")
+library(keras)
+k = backend()
+sess = k$get_session()
+sess$list_devices()
+```
+
+
+```{r}
+#simulate some data
+set.seed(123)
+df <- data.frame(a=rnorm(1000),
+                 b=rnorm(1000),
+                 c=rnorm(1000))
+y=ifelse(df$a>-.075 & df$b<.05 & df$c>0,
+         sample(c(0,1),1,prob=c(.1,.9)),
+         sample(c(1,0),1,prob=c(.1,.9)))
+df <- cbind(y,df)
+
+#split into train/test
+test_ind <- seq(1, length(df$y), 5) 
+train_x <- data.matrix(df[-test_ind,-1])
+train_y <- data.matrix(df[-test_ind, 1])
+test_x <-  data.matrix(df[test_ind,-1])
+test_y <-  data.matrix(df[test_ind, 1])
+```
+
+```{r}
+
+
+# set keras seed
+#use_session_with_seed(345)
+
+# defining a keras sequential model
+model <- keras_model_sequential()
+
+# model architecture
+model %>% 
+  layer_dense(units = 20, input_shape = ncol(train_x)) %>%
+  layer_dropout(rate=0.25)%>%
+  layer_activation(activation = 'relu') %>% 
+  layer_dense(units = 1) %>%
+  layer_activation(activation = 'sigmoid')
+
+# compiling the defined model with metric = accuracy and optimiser as adam.
+model %>% compile(
+  loss = 'binary_crossentropy',
+  optimizer = 'adam',
+  metrics = 'binary_accuracy'
+)
+
+# fitting the model on the training dataset
+model %>% fit(train_x, train_y, 
+              epochs = 1000)
+
+# score and produce predictions
+score <- model %>% evaluate(test_x, test_y)
+pred <- model %>% predict(test_x)
+```
+
+

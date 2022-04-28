@@ -50,28 +50,28 @@ while cont == "y":
     
     which_shape = input("What shape would you like to calculate? (Please enter: square, triangle, equilateral triangle, circle, rectangle, parallelogram, regular polygon, or trapezoid) ")    
     
-    if which_shape == "square":
+    if which_shape.lower() == "square":
         print("Your area is: " + str(square()) , str(final_units_square()))
 
-    elif which_shape == "triangle":
+    elif which_shape.lower() == "triangle":
         print("Your area is: " + str(triangle()) , str(final_units_square()))
 
-    elif which_shape == "equilateral triangle":
+    elif which_shape.lower() == "equilateral triangle":
         print("Your area is: " + str(equilateral_triangle()) , str(final_units_square()))
 
-    elif which_shape == "circle":
+    elif which_shape.lower() == "circle":
         print("Your area is: " + str(circle()) , str(final_units_square()))
     
-    elif which_shape == "rectangle":
+    elif which_shape.lower() == "rectangle":
         print("Your area is: " + str(rectangle_parallelogram()) , str(final_units_square()))
 
-    elif which_shape == "parallelogram":
+    elif which_shape.lower() == "parallelogram":
         print("Your area is: " + str(rectangle_parallelogram()) , str(final_units_square()))
     
-    elif which_shape == "trapezoid":
+    elif which_shape.lower() == "trapezoid":
         print("Your area is: " + str(trapezoid()) , str(final_units_square()))
 
-    elif which_shape == "regular polygon":
+    elif which_shape.lower() == "regular polygon":
         print("Your area is: " + str(reg_n_gon()) , str(final_units_square()))
 
     else:

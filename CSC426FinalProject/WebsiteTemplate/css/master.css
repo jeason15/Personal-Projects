@@ -147,6 +147,16 @@ section#second>div#chartbox{
   align-items: center;
 }
 
+section#fourth>div#chartbox{
+  width: 54%;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
 div#chartbox>div#firstchart{
   width: 100%;
 
@@ -155,6 +165,8 @@ div#chartbox>div#firstchart{
 div#chartbox>div#secondchart{
   width: 75%;
 }
+
+
 
 section#third{
   height: 100vh;

@@ -119,7 +119,7 @@ const colors = {
       },
       responsive: true,
       legend: {
-        display: false
+        display: true
       },
   
       scales: {

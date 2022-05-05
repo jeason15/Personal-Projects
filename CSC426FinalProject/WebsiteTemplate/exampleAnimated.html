@@ -46,7 +46,7 @@
             data2.push({ x: year, y: val2 });
         }
 
-        const totalDuration = 75000;
+        const totalDuration = 5000;
         const delayBetweenPoints = totalDuration / data.length;
         const previousY = (ctx) => ctx.index === 0 ? ctx.chart.scales.y.getPixelForValue(
             100) : ctx.chart.getDatasetMeta(ctx.datasetIndex).data[ctx.index - 1].getProps(['y'],
@@ -117,7 +117,19 @@
                 },
                 scales: {
                     x: {
-                        type: 'linear'
+                        type: 'linear',
+                        ticks: {
+                            callback: function(value, index, values) {
+                                return nums.toString(value);
+                            }
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            callback: function(value, index, values) {
+                                return value + 'mpg'
+                            }
+                        }
                     }
                 }
             }

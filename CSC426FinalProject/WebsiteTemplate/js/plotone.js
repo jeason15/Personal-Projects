@@ -79,6 +79,7 @@ const colors = {
       labels: labels,
       datasets: [
         {
+          label: "Major Domestic",
           fill: true,
           backgroundColor: gradientPurple,
           pointBackgroundColor: colors.purple.default,
@@ -89,6 +90,7 @@ const colors = {
           pointRadius: 3
         },
         {
+          label: "Major Import",
           fill: true,
           backgroundColor: gradientRed,
           pointBackgroundColor: colors.red.default,
@@ -99,6 +101,7 @@ const colors = {
           pointRadius: 3
         },
         {
+          label: "Other",
           fill: true,
           backgroundColor: gradientBlue,
           pointBackgroundColor: colors.blue.default,

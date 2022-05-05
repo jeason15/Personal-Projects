@@ -1,3 +1,23 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Progressive line chart example</title>
+        <style type="text/css">
+            .chartBox{
+                width: 700px;
+            }
+        </style>
+    </head>
+    <body>
+<div class="chartBox">
+    <canvas id="myChart"></canvas>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
 //* Animated Plot from: https://www.chartjs.org/docs/3.0.2/samples/animations/progressive-line.html *//
 
 const inputData = [1,2,3,4,5,6,7,8,9];
@@ -13,8 +33,19 @@ for (let i = 1984; i < 2022; i++) {
   val = inputData.at(i);
   data.push({x: i, y: val});
   val2 = inputData2.at(i);
-  data2.push({x: i, y: val2});
+   data2.push({x: i, y: val2});
 }
+
+//const data = [];
+//const data2 = [];
+//let prev = 100;
+//let prev2 = 80;
+//for (let i = 0; i < 1000; i++) {
+//  prev += 5 - Math.random() * 10;
+//  data.push({x: i, y: prev});
+//  prev2 += 5 - Math.random() * 10;
+//  data2.push({x: i, y: prev2});
+//}
 
 const totalDuration = 10000;
 const delayBetweenPoints = totalDuration / data.length;
@@ -23,7 +54,7 @@ const previousY = (ctx) => ctx.index === 0 ? ctx.chart.scales.y.getPixelForValue
   true).y;
 
 
-var ctx = document.getElementById("plottwo").getContext("2d");
+var ctx = document.getElementById("myChart").getContext("2d");
 var myChart = new Chart(ctx, {
   type: 'line',
     data: {
@@ -82,3 +113,7 @@ var myChart = new Chart(ctx, {
       }
     }
   });
+
+</script>
+    </body>
+</html>

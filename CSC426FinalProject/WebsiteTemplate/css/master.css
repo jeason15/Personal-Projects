@@ -1,3 +1,9 @@
+/* * {
+  font: Verdana, 
+  Arial, 
+  'sans-serif' !important;} */
+
+
 html{
   scroll-behavior: smooth;
 }
@@ -57,11 +63,11 @@ div#titlegraphic{
 div#imgbox{
   width: 100%;
   height: 80%;
-  background-color: #f0de67;
+  background-color: #ffffff;
   border-radius: 5px;
 
-  animation: 5s linear colorShift;
-  animation-iteration-count: infinite;
+  /* animation: 5s linear colorShift;
+  animation-iteration-count: infinite; */
 
   display: flex;
   align-items: center;
@@ -76,31 +82,9 @@ div#imgbox p{
   text-align: center;
 }
 
-@keyframes colorShift {
-  10%{
-    background-color: #fc880e;
-  }
-
-  30%{
-    background-color: #f0de67;
-  }
-
-  50%{
-    background-color: #33c85a;
-  }
-
-  70%{
-    background-color: #484aed;
-  }
-
-  90%{
-    background-color: #cc3434;
-  }
-}
-
 div#titlebox h1{
   font-size: 7rem;
-  margin: 0;
+  margin: 0 150 50 50;
 }
 
 div#titlebox h3{
@@ -154,24 +138,25 @@ section#fourth>div#chartbox{
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: center;
+  align-items: right;
 }
 
 div#chartbox>div#firstchart{
   width: 100%;
-
 }
 
 div#chartbox>div#secondchart{
-  width: 75%;
+  width: 100%;
 }
 
-
+/* div#plottwo{
+  width: 100%;
+  height: 100%;
+} */
 
 section#third{
   height: 100vh;
   padding: 1rem 0 0 0;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -190,16 +175,10 @@ section#fourth{
   height: 100vh;
 }
 
-div#plottwo{
-  width: 100%;
-  height: 100%;
-}
-
 div#mapthing{
   width: 100%;
   height: 100%;
   display: flex;
-
   align-items: center;
   justify-content: space-between;
 }

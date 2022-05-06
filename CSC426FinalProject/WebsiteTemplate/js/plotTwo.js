@@ -26,13 +26,13 @@ for (let i = 0; i < 40; i++) {
 
 const totalDuration = 5000;
 const delayBetweenPoints = totalDuration / data.length;
-const previousY = (ctx) => ctx.index === 0 ? ctx.chart.scales.y.getPixelForValue(
-    100) : ctx.chart.getDatasetMeta(ctx.datasetIndex).data[ctx.index - 1].getProps(['y'],
+const previousY = (ctxTwo) => ctxTwo.index === 0 ? ctxTwo.chart.scales.y.getPixelForValue(
+    100) : ctxTwo.chart.getDatasetMeta(ctxTwo.datasetIndex).data[ctxTwo.index - 1].getProps(['y'],
         true).y;
 
 
-var ctx = document.getElementById("plottwo").getContext("2d");
-var myChart = new Chart(ctx, {
+var ctxTwo = document.getElementById("plottwo").getContext("2d");
+var myChart = new Chart(ctxTwo, {
     type: 'line',
     data: {
         datasets: [{
@@ -57,7 +57,12 @@ var myChart = new Chart(ctx, {
                 labels: {
                     color: 'rgb(255,99,132)'
                 }
-            }
+            },
+            deferred: {
+                xOffset: 150,   // defer until 150px of the canvas width are inside the viewport
+                yOffset: '50%', // defer until 50% of the canvas height are inside the viewport
+                delay: 500      // delay of 500 ms after the canvas is considered inside the viewport
+              }
         },
         animation: {
             x: {
@@ -65,12 +70,12 @@ var myChart = new Chart(ctx, {
                 easing: 'linear',
                 duration: delayBetweenPoints,
                 from: NaN, // the point is initially skipped
-                delay(ctx) {
-                    if (ctx.type !== 'data' || ctx.xStarted) {
+                delay(ctxTwo) {
+                    if (ctxTwo.type !== 'data' || ctxTwo.xStarted) {
                         return 0;
                     }
-                    ctx.xStarted = true;
-                    return ctx.index * delayBetweenPoints;
+                    ctxTwo.xStarted = true;
+                    return ctxTwo.index * delayBetweenPoints;
                 }
             },
             y: {
@@ -78,12 +83,12 @@ var myChart = new Chart(ctx, {
                 easing: 'linear',
                 duration: delayBetweenPoints,
                 from: previousY,
-                delay(ctx) {
-                    if (ctx.type !== 'data' || ctx.yStarted) {
+                delay(ctxTwo) {
+                    if (ctxTwo.type !== 'data' || ctxTwo.yStarted) {
                         return 0;
                     }
-                    ctx.yStarted = true;
-                    return ctx.index * delayBetweenPoints;
+                    ctxTwo.yStarted = true;
+                    return ctxTwo.index * delayBetweenPoints;
                 }
             }
         },

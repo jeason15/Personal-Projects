@@ -30,6 +30,8 @@ html{
 body{
   padding: 0;
   margin: 0;
+  font-family: 'Georgia', serif;
+  color:rgb(121, 2, 121);
   background: url("../imgs/bg.jpg");
   background-repeat: no-repeat;
   background-position: center;
@@ -89,10 +91,6 @@ div#imgbox{
   height: 80%;
   background-color: #ffffff;
   border-radius: 5px;
-
-  /* animation: 5s linear colorShift;
-  animation-iteration-count: infinite; */
-
   display: flex;
   align-items: center;
   justify-content: center;

@@ -24,7 +24,7 @@ for (let i = 0; i < 40; i++) {
     data2.push({ x: year, y: val2 });
 }
 
-const totalDuration = 5000;
+const totalDuration = 4500;
 const delayBetweenPoints = totalDuration / data.length;
 const previousY = (ctxTwo) => ctxTwo.index === 0 ? ctxTwo.chart.scales.y.getPixelForValue(
     100) : ctxTwo.chart.getDatasetMeta(ctxTwo.datasetIndex).data[ctxTwo.index - 1].getProps(['y'],
@@ -58,11 +58,6 @@ var myChart = new Chart(ctxTwo, {
                     color: 'rgb(255,99,132)'
                 }
             },
-            deferred: {
-                xOffset: 150,   // defer until 150px of the canvas width are inside the viewport
-                yOffset: '50%', // defer until 50% of the canvas height are inside the viewport
-                delay: 500      // delay of 500 ms after the canvas is considered inside the viewport
-              }
         },
         animation: {
             x: {

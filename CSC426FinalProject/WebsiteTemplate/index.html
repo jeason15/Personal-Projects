@@ -1,139 +1,142 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Final Project Template</title>
-    <!-- This is where we load the CSS for the page -->
-    <link rel="stylesheet" href="css/master.css">
 
-    <!-- This is where we load the API and CSS for Mapbox -->
-    <script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
-    <link href="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css" rel="stylesheet" />
+<head>
+  <meta charset="utf-8">
+  <title>Final Project Template</title>
+  <!-- This is where we load the CSS for the page -->
+  <link rel="stylesheet" href="css/master.css">
+
+  <!-- This is where we load the API and CSS for Mapbox -->
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css" rel="stylesheet" />
 
 
-  </head>
-  <body>
-    <div id="navthing">
-      <nav id="dataviz">
-        <div>
-          <p>
-            <a href="#first">Miles Per Gallon by Manufacturer Type</a>
-          </p>
-        </div>
-        <div>
-          <p>
-            <a href="#second">Market Trends for Vehicles by Manufacturer</a>
-          </p>
-        </div>
-        <div>
-          <p>
-            <a href="#third">Third Section</a>
-          </p>
-        </div>
-        <div>
-          <p>
-            <a href="#fourth">MapBox</a>
-          </p>
-        </div>
-        <div>
-          <p>
-            <a href="#fifth">Polar Chart</a>
-          </p>
-        </div>
-        <div>
-          <p>
-            <a href="#sixth">Pie Chart</a>
-          </p>
-        </div>
-      </nav>
-    </div>
-    <section id="first" class="content">
+</head>
 
-      <div id="titlestuff">
-        <div id="titlebox">
-          <h1>Vehicle Emissions in the USA</h1>
-          <h3>Some Introduction here...</h3>
-          <p>
-            This is where some bullshit goes about how we are buying more foreign cars in the US, which has seen a large growth in the market because of fuel economy...
-          </p>
-        </div>
-
-        <div id="titlegraphic">
-          <div id="imgbox">
-            <img src="imgs/emissions.jpg" alt="Car emissions">
-            <!-- <p>Place an Image or Something Here</p> -->
-          </div>
-        </div>
+<body>
+  <div id="navthing">
+    <nav id="dataviz">
+      <div>
+        <p>
+          <a href="#first">Introduction</a>
+        </p>
       </div>
-    </section>
-
-    <section id="second" class="content">
-      <div id="textbox">
-        <h3>Fuel Economy in the United States by Manufacturer Class</h3>
-        <p>Long story short, we are getting better fuel economy, and the imports are better than the domestics.</p>
+      <div>
+        <p>
+          <a href="#second">MPG Data by Manufacturer Class</a>
+        </p>
       </div>
-      <div id="chartbox">
-        <div id="firstchart">
-          <canvas id="plotone"></canvas>
-        </div>
+      <div>
+        <p>
+          <a href="#third">Market Trends for Vehicles by Manufacturer</a>
+        </p>
       </div>
-    </section>
-
-    <section id="third" class="content">
-      <div id="textbox">
-        <h3>Contextual Title</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut officiis libero reprehenderit officia, quis fuga, ea sequi maxime dolorum ipsa itaque assumenda, eos maiores aut cum? Hic consequuntur officiis dolorem. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla quod fugit recusandae facilis quos iure est adipisci voluptas eligendi atque aperiam, alias neque, doloremque minima. Velit amet laudantium quis architecto?</p>
-      </div>
-    </section>
-
-    <section id="fourth" class="content">
-      <div id="chartbox">
-        <div id="textbox">
-          <h3>Contextual Title</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </div>
-        <div id='secondchart'>
-          <canvas id="plottwo"></canvas>
-        </div>
-      </div>
-    </section>
-
-    <section id="fifth" class="content">
-      <div id="textbox">
-        <h3>Chart for the Thing</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore similique rerum illo, veniam, temporibus exercitationem deserunt. Magnam iure, quis provident incidunt deserunt unde non. Beatae illo, earum odit saepe ad.</p>
-      </div>
-      <!-- <div id="polarchart">
-        <canvas id="polar-chart"></canvas>
+      <!-- <div>
+        <p>
+          <a href="#fourth">MapBox</a>
+        </p>
       </div> -->
-    </section>
-
-    <section id="sixth" class="content">
-      <div id="textbox">
-        <h3>Chart for the Thing</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore similique rerum illo, veniam, temporibus exercitationem deserunt. Magnam iure, quis provident incidunt deserunt unde non. Beatae illo, earum odit saepe ad.</p>
+      <div>
+        <p>
+          <a href="#fourth">MPG Data by Cylinder</a>
+        </p>
       </div>
-      <!-- <div id="piechart">
+      <div>
+        <p>
+          <a href="#fifth">MPG vs. Displacement</a>
+        </p>
+      </div>
+    </nav>
+  </div>
+  <section id="first" class="content">
+
+    <div id="titlestuff">
+      <div id="titlebox">
+        <h1>Vehicle Emissions in the USA</h1>
+        <h3>Some Introduction here...</h3>
+        <p>
+          This is where some bullshit goes about how we are buying more foreign cars in the US, which has seen a large
+          growth in the market because of fuel economy...
+        </p>
+      </div>
+
+      <div id="titlegraphic">
+        <div id="imgbox">
+          <img src="imgs/emissions.jpg" alt="Car emissions">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="second" class="content">
+    <div id="textbox">
+      <h3>Fuel Economy in the United States by Manufacturer Class</h3>
+      <p>Long story short, we are getting better fuel economy, and the imports are better than the domestics.</p>
+    </div>
+    <div id="chartbox">
+      <div id="firstchart">
+        <canvas id="plotOne"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <section id="third" class="content">
+    <div id="textbox">
+      <h3>Proliferation of Manufacturers in the United States</h3>
+      <p>Something here about how imports and domestics have flip/flopped</p>
+    </div>
+    <div id="chartbox">
+      <div id='secondchart'>
+        <canvas id="plotTwo"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <section id="fourth" class="content">
+    <div id="textbox">
+      <h3>Chart for the Thing</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore similique rerum illo, veniam, temporibus
+        exercitationem deserunt. Magnam iure, quis provident incidunt deserunt unde non. Beatae illo, earum odit saepe
+        ad.</p>
+    </div>
+    <div id="chartbox">
+      <div id="thirdchart">
+        <canvas id="plotThree"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <section id="fifth" class="content">
+    <div id="textbox">
+      <h3>Chart for the Thing</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore similique rerum illo, veniam, temporibus
+        exercitationem deserunt. Magnam iure, quis provident incidunt deserunt unde non. Beatae illo, earum odit saepe
+        ad.</p>
+    </div>
+    <!-- <div id="piechart">
         <canvas id="pieChart"></canvas>
       </div> -->
-    </section>
+  </section>
 
-    <!-- SCRIPTS - CHARTJS and MAPBOX libraries -->
-    <!-- CHARTJS -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js" charset="utf-8"></script> -->
-    <!--<script src="js/barChart.js" charset="utf-8"></script> -->
-    <!-- <script src="js/polarChart.js" charset="utf-8"></script>
+  <!-- SCRIPTS - CHARTJS and MAPBOX libraries -->
+  <!-- CHARTJS -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js" charset="utf-8"></script> -->
+  <!--<script src="js/barChart.js" charset="utf-8"></script> -->
+  <!-- <script src="js/polarChart.js" charset="utf-8"></script>
     <script src="js/radarChart.js" charset="utf-8"></script>
     <script src="js/pieChart.js" charset="utf-8"></script> -->
-    <script src="js/plotOne.js" charset="utf-9"></script>
-    <script src="js/plotTwo.js" charset="utf-9"></script>
+  <script src="js/plotOne.js" charset="utf-9"></script>
+  <script src="js/plotTwo.js" charset="utf-9"></script>
+  <script src="js/plotThree.js" charset="utf-9"></script>
 
-    <!-- JQUERY -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- JQUERY -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <!-- JQUERY UI -->
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" charset="utf-8"></script>
+  <!-- JQUERY UI -->
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" charset="utf-8"></script>
 
-  </body>
+</body>
+
 </html>

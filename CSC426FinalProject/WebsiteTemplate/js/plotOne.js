@@ -48,7 +48,7 @@ const labels = [1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,
   2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,
   2014,2015,2016,2017,2018,2019,2020,2021,2022,2023];
 
-const ctx = document.getElementById("plotone").getContext("2d");
+const ctx = document.getElementById("plotOne").getContext("2d");
 ctx.canvas.height = 100;
 
 gradientPurple = ctx.createLinearGradient(0, 25, 0, 300);

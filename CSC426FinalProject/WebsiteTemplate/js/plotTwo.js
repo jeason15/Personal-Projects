@@ -31,7 +31,7 @@ const previousY = (ctxTwo) => ctxTwo.index === 0 ? ctxTwo.chart.scales.y.getPixe
         true).y;
 
 
-var ctxTwo = document.getElementById("plottwo").getContext("2d");
+var ctxTwo = document.getElementById("plotTwo").getContext("2d");
 var myChart = new Chart(ctxTwo, {
     type: 'line',
     data: {

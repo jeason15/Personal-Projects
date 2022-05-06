@@ -3,7 +3,8 @@
   Arial, 
   'sans-serif' !important;} */
 
-div#bg {
+
+/* div#bg {
   position: fixed; 
   top: -50%; 
   left: -50%; 
@@ -19,8 +20,8 @@ div#bg img {
   margin: auto; 
   min-width: 50%;
   min-height: 50%;
-  z-index: 50;
-}
+  z-index: -50;
+} */
 
 html{
   scroll-behavior: smooth;
@@ -29,6 +30,11 @@ html{
 body{
   padding: 0;
   margin: 0;
+  background: url("../imgs/bg.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 div#navthing{
@@ -222,14 +228,6 @@ div#chartbox>div#thirdchart{
   width: 100%;
 }
 
-div#polarchart{
-  width: 50%;
-}
-
-div#piechart{
-  width: 50%;
-}
-
 section#fifth{
   height: 100vh;
   /* padding: 3rem 0 0 0; */
@@ -252,4 +250,17 @@ section#fifth>div#textbox>p{
   font-size: 2rem;
   margin-top: .5rem;
   font-style: italic;
+}
+
+section#fifth>div#chartbox{
+  width: 54%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+div#chartbox>div#fourthchart{
+  width: 100%;
 }

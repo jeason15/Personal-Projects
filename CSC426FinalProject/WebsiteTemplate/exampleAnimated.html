@@ -14,40 +14,38 @@
 
 <body>
     <div class="chartBox">
-        <canvas id="plotThree"></canvas>
+        <canvas id="plotFour"></canvas>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
 
-        var ctxThree = document.getElementById('plotThree').getContext('2d');
+        var ctxFour = document.getElementById('plotFour').getContext('2d');
 
-        new Chart(document.getElementById("plotThree"), {
-            type: 'bar',
+        new Chart(document.getElementById("plotFour"), {
+            type: 'doughnut',
             data: {
-                labels: ["2", "3", "4", "5", "6", "8", "10", "12", "16"],
-                datasets: [
-                    {
-                        label: "Major Domestic",
-                        backgroundColor: "#3e95cd",
-                        data: [0, 32.24, 29.20, 15.74, 15.99, 13.34, 10.84, 0, 0]
-                    }, {
-                        label: "Major Import",
-                        backgroundColor: "#8e5ea2",
-                        data: [18.95, 30.03, 22.68, 18.16, 17.31, 13.98, 12.29, 11.11, 8.35]
-                    }
-                ]
+              labels: ['Toyota', 'Ford', 'Chevrolet', 'Honda', 'Nissan', 'Jeep', 'Hyundai', 'Kia', 'Ram', 'Subaru'],
+              datasets: [
+                {
+                  label: "Number of Models",
+                  backgroundColor: ['rgba(235,10,30)','rgba(19,81,216)','rgba(209,173,87)','rgba(204,0,0)',
+                  'rgba(0,0,0)','rgba(72,95,43)','rgba(0,48,130)','rgba(126,128,131)','rgba(151,38,38)','rgba(0,72,144)'],
+                  data: [1933099, 1804824, 1422031, 1308476, 919090, 768713, 726715, 677494, 647329, 598480]
+                }
+              ]
             },
             options: {
-                title: {
-                    display: true,
-                    text: 'MPG by Cylinders'
-                }
+              title: {
+                display: true,
+                text: "Vehicle Sales 2022 by Manufacturer (top 10)"
+              }
             }
         });
+        
 
         window.onload = function () {
-            window.myLine = new Chart(ctxThree, options);
+            window.myLine = new Chart(ctxFour, options);
             Chart.defaults.global.defaultFontColor = colors.indigo.default;
             Chart.defaults.global.defaultFontFamily = "Fira Sans";
         };

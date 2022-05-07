@@ -30,7 +30,6 @@ const previousY = (ctxTwo) => ctxTwo.index === 0 ? ctxTwo.chart.scales.y.getPixe
     100) : ctxTwo.chart.getDatasetMeta(ctxTwo.datasetIndex).data[ctxTwo.index - 1].getProps(['y'],
         true).y;
 
-
 var ctxTwo = document.getElementById("plotTwo").getContext("2d");
 var myChart = new Chart(ctxTwo, {
     type: 'line',
@@ -55,7 +54,7 @@ var myChart = new Chart(ctxTwo, {
             legend: {
                 display: true,
                 labels: {
-                    color: 'rgb(255,99,132)'
+                    color: 'rgba(233,77,5)'
                 }
             },
         },

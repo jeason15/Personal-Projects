@@ -1,28 +1,3 @@
-/* * {
-  font: Verdana, 
-  Arial, 
-  'sans-serif' !important;} */
-
-
-/* div#bg {
-  position: fixed; 
-  top: -50%; 
-  left: -50%; 
-  width: 200%; 
-  height: 200%;
-}
-div#bg img {
-  position: absolute; 
-  top: 0; 
-  left: 0; 
-  right: 0; 
-  bottom: 0; 
-  margin: auto; 
-  min-width: 50%;
-  min-height: 50%;
-  z-index: -50;
-} */
-
 html{
   scroll-behavior: smooth;
 }
@@ -31,8 +6,8 @@ body{
   padding: 0;
   margin: 0;
   font-family: 'Georgia', serif;
-  color:rgb(121, 2, 121);
-  background: url("../imgs/bg.jpg");
+  color:rgb(128, 0, 160);
+  background: url("../imgs/bg3.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;

@@ -1,6 +1,5 @@
 
 //* Interactive plot for the mpg of each manufacturer class by year. *//
-
 const colors = {
   purple: {
     default: "rgba(149, 76, 233, 1)",
@@ -42,14 +41,15 @@ const majorImport = [20.44253859, 20.11058824, 19.63559322, 18.77200903, 18.6435
   17.58074074, 17.60056657, 17.33585477, 17.16360856, 17.37323944,
   17.67496542, 18.29676512, 19.18657718, 19.81282051, 21.02857143,
   21.35238095, 21.48802737, 21.99881797, 22.66398159, 22.532831,
-  23.36633663, 23.29767442, 24.49761337, 26.36570743, 22.10126582]
+  23.36633663, 23.29767442, 24.49761337, 26.36570743]
 
 const labels = [1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993,
   1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003,
   2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013,
-  2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023];
+  2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022];
 
 const ctxOne = document.getElementById("plotOne").getContext("2d");
+
 ctxOne.canvas.height = 100;
 
 gradientPurple = ctxOne.createLinearGradient(0, 25, 0, 300);
@@ -76,7 +76,8 @@ const options = {
         data: majorDomestic,
         lineTension: 0.2,
         borderWidth: 2,
-        pointRadius: 3
+        pointRadius: 3,
+        pointHoverRadius: 15
       },
       {
         label: "Major Import",
@@ -87,7 +88,8 @@ const options = {
         data: majorImport,
         lineTension: 0.2,
         borderWidth: 2,
-        pointRadius: 3
+        pointRadius: 3,
+        pointHoverRadius: 15
       }
     ]
   },

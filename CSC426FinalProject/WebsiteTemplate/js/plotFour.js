@@ -24,9 +24,3 @@ new Chart(document.getElementById("plotFour"), {
     }
 });
 
-
-window.onload = function () {
-    window.myLine = new Chart(ctxFour, options);
-    Chart.defaults.global.defaultFontColor = colors.indigo.default;
-    Chart.defaults.global.defaultFontFamily = "Fira Sans";
-};

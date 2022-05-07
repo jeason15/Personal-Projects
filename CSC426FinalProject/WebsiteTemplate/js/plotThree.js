@@ -23,9 +23,3 @@ new Chart(document.getElementById("plotThree"), {
         }
     }
 });
-
-window.onload = function () {
-    window.myLine = new Chart(ctxThree, options);
-    Chart.defaults.global.defaultFontColor = colors.indigo.default;
-    Chart.defaults.global.defaultFontFamily = "Fira Sans";
-};

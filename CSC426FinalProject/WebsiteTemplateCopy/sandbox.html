@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Progressive line chart example</title>
+  <style type="text/css">
+    .chartBox {
+      width: 700px;
+    }
+  </style>
+</head>
+
+<body>
+  <section id="first" class="content">
+    <div class="titlestuff">
+      <div id="titlebox">
+        <h1>Vehicle Emissions</h1>
+        <h3>Exploratory Analysis of Vehicle Emissions Trends in the United States</h3>
+        <div id="wrap">
+          <img class="right" src="imgs/emissions.jpg">
+          <p>
+            During the post WWII boom in the US economy, and the affordability of individual transportation, Americans
+            flocked to suburban bedroom communities.
+            This resulted in the average American worker commuting solo. By 2009, it is estimated that 81.5 percent of
+            commuters from suburban areas made
+            their daily drives alone, for an average of 25.1 minutes.
+            <!-- source: https://alankandel.scienceblog.com/2013/06/15/fifty-years-of-american-commuting-1960-2009-what-the-numbers-say/-->
+            Due to this, Americans are reported to have released approximately a cumulative 410.2 billion metric tons
+            of
+            CO2 into the atmosphere by 2019
+            <!-- source: https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwj77Njxxsz3AhXSUjABHQRWB04QFnoECA4QAw&url=https%3A%2F%2Fwww.statista.com%2Fstatistics%2F1224630%2Fcumulative-co2-emissions-united-states-historical%2F&usg=AOvVaw1kwwSwBF2KhYM14ozFeNEl -->
+            , along with other harmful motor vehicle emissions, such as NoX, PM, and lead from fuels. In order to
+            combat
+            this global plauge, the US Environmental Protection Agency, auto manufacturers, as well as consumer
+            advocates,
+            began to closely
+            regulate, restrict, and monitor vehicle emissions beginning in the mid-1970's through sweeping amendments
+            to
+            the 1963 Clean Air Act.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="second" class="content">
+    <div id="textbox">
+      <h3>Fuel Economy in the United States by Manufacturer Class</h3>
+      <p>Long story short, we are getting better fuel economy, and the imports are better than the domestics.</p>
+    </div>
+    <div id="chartbox">
+      <div id="firstchart">
+        <canvas id="plotOne"></canvas>
+      </div>
+    </div>
+  </section>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/plotOne.js" charset="utf-9"></script>
+
+</body>
+
+</html>

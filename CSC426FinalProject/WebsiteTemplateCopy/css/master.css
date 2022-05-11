@@ -1,0 +1,264 @@
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+  padding: 0;
+  margin: 0;
+  font-family: 'Georgia', serif;
+  color:rgb(128, 0, 160);
+  background: url("../imgs/bg.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  z-index: -2;
+}
+
+div#gradient{
+  width: 100vw;
+  height: 100vw;
+  position: fixed;
+  z-index: -1;
+
+  background-image: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1));
+}
+
+div#navthing{
+  width: 12.5vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  font-style: italic;
+}
+
+nav#dataviz{
+  width: 100%;
+  margin-left: 1rem;
+  align-self: flex-start;
+}
+
+section.content{
+  width: 75vw;
+  margin: 0 5vw 0 20vw;
+}
+
+section#first{
+  /* height: 100vh; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div#titlestuff{
+  width: 100%;
+  /* display: flex;
+  justify-content: space-between;
+  align-items: center; */
+}
+
+div.textbox-one, div#titletext{
+  width: 100%;
+}
+
+div.textbox-one{
+  display: flex;
+  justify-content: space-between;
+}
+
+div#titlebox{
+  width: 49%;
+}
+
+div#titlegraphic{
+  width: 49%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+div#imgbox{
+  width: 49%;
+  border-radius: 5px;
+
+}
+
+div#imagebox>img{
+  width: 100%;
+}
+
+/* div#imgbox p{
+  width: 70%;
+  font-size: 3rem;
+  color: rgba(255,255,255, 0.3);
+  font-style: italic;
+  text-align: center;
+} */
+
+div.titletext h1{
+  font-size: 7vw;
+  /* margin: 0 150 50 50; */
+}
+
+div#titlebox h3{
+  font-size: 3.75vw;
+  /* margin: 3rem 0 0 0; */
+  font-style: italic;
+}
+
+div#titlebox p{
+  width: 90%;
+  font-size: 1.5rem;
+}
+
+section#second{
+  height: 100vh;
+  padding: 3rem 0 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+section#second>div#textbox{
+  width: 45%;
+}
+
+section#second>div#textbox>h3{
+  font-size: 3.75rem;
+  margin-bottom: 0;
+}
+
+section#second>div#textbox>p{
+  font-size: 2rem;
+  margin-top: .5rem;
+  font-style: italic;
+}
+
+section#second>div#chartbox{
+  width: 54%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+div#chartbox>div#firstchart{
+  width: 100%;
+}
+
+section#third{
+  height: 100vh;
+  padding: 3rem 0 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+section#third>div#textbox{
+  width: 45%;
+}
+
+section#third>div#textbox p{
+  font-size: 3rem;
+}
+
+section#third>div#textbox h3{
+  font-size: 3.75rem;
+}
+
+section#third>div#chartbox{
+  width: 54%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+div#chartbox>div#secondchart{
+  width: 100%;
+}
+
+section#fourth{
+  height: 100vh;
+  /* padding: 3rem 0 0 0; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* flex-direction: row; */
+}
+
+section#fourth>div#textbox{
+  width: 48%;
+}
+
+section#fourth>div#textbox>h3{
+  font-size: 3.75rem;
+  margin-bottom: 0;
+}
+
+section#fourth>div#textbox>p{
+  font-size: 2rem;
+  margin-top: .5rem;
+  font-style: italic;
+}
+
+section#fourth>div#chartbox{
+  width: 54%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+div#chartbox>div#thirdchart{
+  width: 100%;
+}
+
+section#fifth{
+  height: 100vh;
+  /* padding: 3rem 0 0 0; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* flex-direction: row; */
+}
+
+section#fifth>div#textbox{
+  width: 48%;
+}
+
+section#fifth>div#textbox>h3{
+  font-size: 3.75rem;
+  margin-bottom: 0;
+}
+
+section#fifth>div#textbox>p{
+  font-size: 2rem;
+  margin-top: .5rem;
+  font-style: italic;
+}
+
+section#fifth>div#chartbox{
+  width: 54%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+div#chartbox>div#fourthchart{
+  width: 100%;
+  height: 100%;
+}
+
+canvas#plotFour{
+  width: 700px;
+  height: 700px;
+  overflow: visible;
+  z-index: 2;
+}

@@ -102,14 +102,14 @@ div.titletext h1{
 }
 
 div#titlebox h3{
-  font-size: 3.75vw;
+  font-size: 3.75vh;
   /* margin: 3rem 0 0 0; */
   font-style: italic;
 }
 
-div#titlebox p{
+div#titlebox>p{
   width: 90%;
-  font-size: 1.5rem;
+  font-size: 2.5vh;
 }
 
 section#second{
@@ -125,14 +125,13 @@ section#second>div#textbox{
 }
 
 section#second>div#textbox>h3{
-  font-size: 3.75rem;
+  font-size: 3.75vh;
   margin-bottom: 0;
 }
 
 section#second>div#textbox>p{
-  font-size: 2rem;
+  font-size: 2.5vh;
   margin-top: .5rem;
-  font-style: italic;
 }
 
 section#second>div#chartbox{
@@ -160,12 +159,12 @@ section#third>div#textbox{
   width: 45%;
 }
 
-section#third>div#textbox p{
-  font-size: 3rem;
+section#third>div#textbox>p{
+  font-size: 2.5vh;
 }
 
 section#third>div#textbox h3{
-  font-size: 3.75rem;
+  font-size: 3.75vh;
 }
 
 section#third>div#chartbox{
@@ -195,12 +194,12 @@ section#fourth>div#textbox{
 }
 
 section#fourth>div#textbox>h3{
-  font-size: 3.75rem;
+  font-size: 3.75vh;
   margin-bottom: 0;
 }
 
 section#fourth>div#textbox>p{
-  font-size: 2rem;
+  font-size: 2.5vh;
   margin-top: .5rem;
   font-style: italic;
 }
@@ -232,12 +231,12 @@ section#fifth>div#textbox{
 }
 
 section#fifth>div#textbox>h3{
-  font-size: 3.75rem;
+  font-size: 3.75vh;
   margin-bottom: 0;
 }
 
 section#fifth>div#textbox>p{
-  font-size: 2rem;
+  font-size: 2.5vh;
   margin-top: .5rem;
   font-style: italic;
 }
